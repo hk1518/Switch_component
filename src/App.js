@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Switch from "./Components/switch.js";
+import Switch from "./switch.js";
 // import {Button, TextField} from "superops-polaris-old";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
     // className="width"
     value={state}
     onChange={handleOnChange}
-    size="220"
+    size="large"
       // labels={{on:"", off:""}}
     />
     );

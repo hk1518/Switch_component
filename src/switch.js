@@ -77,12 +77,12 @@ function Switch(props) {
   const classNames = `${className}`;
 
   return (
-    <Wrapper width={size || widthMap[size] }>
+    <Wrapper width={widthMap[size] || size}>
       <SwitchContainer
-        className={`${classNames || ''} ${
+        className={`${classNames || ""} ${
           value ? "SwitchContainerActive" : "SwitchContainerInactive"
         }`}
-        width={`${ size || widthMap[size] }px`}
+        width={`${widthMap[size] || size}px`}
         textColors={textColors}
         ballColor={ballColor}
         colors={colors}
