@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Switch from "./switch.js";
+import "./index.css"
 // import {Button, TextField} from "superops-polaris-old";
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
   };
   return (
     <Switch
-    // className="width"
+    className="width"
     value={state}
     onChange={handleOnChange}
     size="large"

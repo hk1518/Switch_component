@@ -2,12 +2,27 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+
+  @keyframes fore {
+    from {left: 5px;}
+    to {left: calc(100% - 25px)}
+    
+  }
+  @keyframes back {
+     from {left: calc(100% - 25px)}
+     to {left: 5px;}
+  }
+ 
   .SwitchContainerInactive::before {
-    transform: translateX(5px);
+    position: absolute;
+    animation : back 200ms forwards;
+ 
   }
   .SwitchContainerActive::before {
-    --width: ${(props) => props.width - 25}px;
-    transform: translateX(var(--width));
+    position: absolute;
+    animation : fore 200ms forwards;
+    
+
   }
 `;
 
@@ -46,11 +61,12 @@ const SwitchContainer = styled.div`
 
   &:before {
     content: "";
-    position: absolute;
+    position:absolute;
     width: 18px;
     height: 18px;
     border-radius: 100px;
     transition: transform 200ms ease-in-out;
+    transform-box: content-box;
     background: ${(props) => props.ballColor};
   }
 `;
@@ -77,12 +93,12 @@ function Switch(props) {
   const classNames = `${className}`;
 
   return (
-    <Wrapper width={widthMap[size] || size}>
+    <Wrapper>
       <SwitchContainer
         className={`${classNames || ""} ${
           value ? "SwitchContainerActive" : "SwitchContainerInactive"
         }`}
-        width={`${widthMap[size] || size}px`}
+        width={`${widthMap[size]}px`}
         textColors={textColors}
         ballColor={ballColor}
         colors={colors}
@@ -101,7 +117,7 @@ function Switch(props) {
 }
 
 Switch.defaultProps = {
-  size: "large",
+  
   labels: {
     on: "ENABLED",
     off: "DISABLED",
