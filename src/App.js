@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Switch from "./switch.js";
 import "./index.css"
+import {SuperButton} from "superkit/src"
 // import {Button, TextField} from "superops-polaris-old";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     console.log(value, "lol new value");
   };
   return (
+    <div>
     <Switch
     className="width"
     value={state}
@@ -18,6 +20,8 @@ function App() {
     size="large"
       // labels={{on:"", off:""}}
     />
+    <SuperButton primary>Hello</SuperButton>
+    </div>
     );
 
   
