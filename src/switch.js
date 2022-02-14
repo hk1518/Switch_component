@@ -2,27 +2,30 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-
   @keyframes fore {
-    from {left: 5px;}
-    to {left: calc(100% - 25px)}
-    
+    from {
+      left: 5px;
+    }
+    to {
+      left: calc(100% - 25px);
+    }
   }
   @keyframes back {
-     from {left: calc(100% - 25px)}
-     to {left: 5px;}
+    from {
+      left: calc(100% - 25px);
+    }
+    to {
+      left: 5px;
+    }
   }
- 
+
   .SwitchContainerInactive::before {
     position: absolute;
-    animation : back 200ms forwards;
- 
+    animation: back 200ms forwards;
   }
   .SwitchContainerActive::before {
     position: absolute;
-    animation : fore 200ms forwards;
-    
-
+    animation: fore 200ms forwards;
   }
 `;
 
@@ -61,7 +64,7 @@ const SwitchContainer = styled.div`
 
   &:before {
     content: "";
-    position:absolute;
+    position: absolute;
     width: 18px;
     height: 18px;
     border-radius: 100px;
@@ -105,7 +108,7 @@ function Switch(props) {
         value={value}
         disabled={disabled}
         onClick={() => {
-          !disabled && onChange(!value);
+          !disabled && onChange(value);
         }}
       >
         <div className={`label ${value ? "labelActive" : "labelInactive"}`}>
@@ -117,7 +120,6 @@ function Switch(props) {
 }
 
 Switch.defaultProps = {
-  
   labels: {
     on: "ENABLED",
     off: "DISABLED",
